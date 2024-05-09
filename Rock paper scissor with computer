@@ -1,0 +1,39 @@
+import random
+
+user_wins = 0
+comp_wins = 0
+
+rps = ['Rock','Paper','Scissor']
+
+
+while True:
+    user = input("Type Rock/Paper/Scissor or q to quit: ").lower()
+    if user == 'q':
+        break
+
+    if user not in ['rock','paper','scissor']:
+        print("Invalid Input,Please Try Again")
+        continue
+    
+    random_num = random.randint(0,2)
+    #rock is 0,paper is 1,scissors is 2
+    computer_rand = rps[random_num].lower()
+    print(f'Computer Picked: {computer_rand}')
+
+    if user == 'paper' and computer_rand == 'Rock':
+        print('Player wins')
+        user_wins += 1
+    elif user == 'scissor' and computer_rand == 'Paper':
+        print('Player wins')
+        user_wins += 1
+    elif user == 'rock' and computer_rand == 'Scissor':
+        print('Player wins')
+        user_wins += 1
+    elif user == computer_rand:
+        print("Draw")
+    else:
+        print("Computer Won") 
+        comp_wins += 1
+
+    print(f'The User has won {user_wins} games and the computer has won {comp_wins} games')
+   
